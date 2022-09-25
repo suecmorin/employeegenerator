@@ -8,11 +8,11 @@ const questions = require("./index.js");
 
 const makeCards = (data) => {
 for (let i = 0; i < data.length; i ++) {
-    if (data[i].getemployeeType === "Manager") {
+    if (data[i].getRole === "Manager") {
          card === managerCard(data[i]);
-    } else if (data[i].getemployeeType === "Engineer") {
+    } else if (data[i].getRole === "Engineer") {
         card === engineerCard(data[i]);
-    } else if  (data[i].getemployeeType === "Intern") {
+    } else if  (data[i].getRole === "Intern") {
         card === internCard(data[i]);
     }
     return card;

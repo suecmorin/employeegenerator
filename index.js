@@ -85,10 +85,8 @@ function addteamMember() {
         switch(answers.employeeType){
             case "Engineer":
                 addEngineer();
-                break;
             case "Intern":
                 addIntern();
-                break;
         }
     });
 };
