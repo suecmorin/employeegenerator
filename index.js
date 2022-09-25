@@ -5,9 +5,11 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Employee = require("./lib/Employee");
 
-const createHTML = require("./dist/generateHTML");
+const generateHTML = require("./src/generateHTML.js");
 
 const managerTeam = [];
+
+addManager();
 
 function addManager() {
 console.log("Let's build your team. Please answer the following questions.");
@@ -67,7 +69,6 @@ inquirer.prompt([
  ]).then (data =>{
      const manager = new Manager(data.managerName, data.managerID, data.managerEmail, data.officeNumber);
      managerTeam.push(manager);
-
 addteamMember();
 })
 };
@@ -209,7 +210,6 @@ function addEngineer() {
             const intern = new Intern(data.internName, data.internId, data.internEmail, data.internSchool);
             managerTeam.push(intern); 
             menu();
-
         });
 };
 function menu() {
@@ -230,6 +230,16 @@ function menu() {
                     break;
             }
         });
-
 };
 
+function buildTeam() {
+    const buildFile = buildFile(managerTeam);
+    fs.writeFile('./dist/index.HTML', buildFile, err => {
+        if (err) {
+            console.log("Error in creating index.HTML");
+        }else {
+            console.log("index.HTML created in dist subdirectory");
+        }
+        })
+    };
+    
