@@ -138,7 +138,7 @@ function addEngineer() {
         message: "Enter engineer's github account",
         name: "engineerGithub",  
         validate: engineerGithub => {
-            if(managerName){
+            if(engineerGithub){
                 return true;
             }else{
                 console.log("Github account cannot be blank");
@@ -224,16 +224,14 @@ function menu() {
             switch(answers.addEmployee){
                 case "Yes":
                     addteamMember();
-                    break;
                 case "No":
                     buildTeam();
-                    break;
             }
         });
 };
 
 function buildTeam() {
-    const buildFile = buildFile(managerTeam);
+    const buildFile = generateHTML(managerTeam);
     fs.writeFile('./dist/index.HTML', buildFile, err => {
         if (err) {
             console.log("Error in creating index.HTML");
