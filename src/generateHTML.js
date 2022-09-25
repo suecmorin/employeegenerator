@@ -22,7 +22,7 @@ const managerCard = (data) => {
    return `
    <div class="card col-sm-2 bg-primary text-white rounded">
    <div class ="card-body"
-   <ul class="list-group list-group-flush list-unstyled>
+   <ul class="list-group list-group-flush list-unstyled">
    <li ${data.name}</li>
    <li <a href="mail to ${data.email}">${data.email}</a></li>
    <li ${data.officeNumber}</li>
@@ -33,7 +33,7 @@ const engineerCard = (data) => {
     return `
     <div class="card col-sm-2 bg-success text-white rounded">
     <div class ="card-body"
-    <ul class="list-group list-group-flush list-unstyled>
+    <ul class="list-group list-group-flush list-unstyled">
     <li ${data.name}</li>
     <li <a href="mail to ${data.email}">${data.email}</a></li>
     <li <a href="github.com/${data.github}"</a></li>
@@ -44,7 +44,7 @@ const engineerCard = (data) => {
     return `
     <div class="card col-sm-2 bg-warning text-white rounded">
     <div class ="card-body"
-    <ul class="list-group list-group-flush list-unstyled>
+    <ul class="list-group list-group-flush list-unstyled">
     <li ${data.name}</li>
     <li <a href="mail to ${data.email}">${data.email}</a></li>
     <li ${data.school}</li>
