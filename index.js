@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const Manager = require("./lib/Manager.js");
+const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer.js");
 const Intern = require("./lib/Intern.js");
 const Employee = require("./lib/Employee.js");
@@ -16,10 +16,10 @@ console.log("Let's build your team. Please answer the following questions.");
 inquirer.prompt([
     {
         type: "input", 
-        message: "Enter your name:",
-        name: "managerName",
-        validate: managerName => {
-            if(managerName){
+        message: "Enter your name",
+        name: "namer",
+        validate: namer => {
+            if(namer){
                 return true;
             }else{
                 console.log("Name cannot be blank");
@@ -30,9 +30,9 @@ inquirer.prompt([
     {
         type: "input",
         message: "Enter your employee ID number:",
-        name: "managerID",
-        validate: managerID => {
-            if(managerID){
+        name: "id",
+        validate: id => {
+            if(id){
                 return true;
             }else{
                 console.log("Please enter an ID number");
@@ -43,9 +43,9 @@ inquirer.prompt([
     {
         type: "input",
         message: "Enter your email:",
-        name: "managerEmail",
-        validate: managerEmail =>{
-            if(managerEmail){
+        name: "email",
+        validate: email =>{
+            if(email){
                 return true;
             }else{
                 console.log("Please enter an email address");
@@ -62,14 +62,15 @@ inquirer.prompt([
                 return true;
             }else{
                 console.log("Please enter an office number");
-                return false
+                return false;
             }
         }
     }
  ]).then (data =>{
-     const manager = new Manager(data.managerName, data.managerID, data.managerEmail, data.officeNumber);
+     const manager = new Manager(namer, id, email, officeNumber);
      managerTeam.push(manager);
-addteamMember();
+     console.log("this is manager" + data);
+    addteamMember();
 })
 };
 
@@ -82,10 +83,9 @@ function addteamMember() {
         choices: ["Engineer", "Intern"]
         }
     ]).then (function(answers){
-        switch(answers.employeeType){
-            case "Engineer":
+        if(answers.employeeType == "Engineer"){
                 addEngineer();
-            case "Intern":
+         } else {
                 addIntern();
         }
     });
@@ -95,9 +95,9 @@ function addEngineer() {
         {
         type: "input",
         message: "Enter engineer's name:",
-        name: "engineerName",
-        validate: engineerName => {
-            if(engineerName){
+        name: "namer",
+        validate: namer => {
+            if(namer){
                 return true;
             }else{
                 console.log("Name cannot be blank");
@@ -108,9 +108,9 @@ function addEngineer() {
         {
         type: "input",
         message: "Enter engineer's ID number",
-        name: "engineerId",
-        validate: engineerId => {
-            if(engineerId){
+        name: "id",
+        validate: id => {
+            if(id){
                 return true;
             }else{
                 console.log("Engineer ID cannot be blank");
@@ -121,9 +121,9 @@ function addEngineer() {
         {
         type: "input",
         message: "Enter engineer's email address",
-        name: "engineerEmail",
-        validate: engineerEmail => {
-            if(engineerEmail){
+        name: "email",
+        validate: email => {
+            if(email){
                 return true;
             }else{
                 console.log("Email cannot be blank");
@@ -134,9 +134,9 @@ function addEngineer() {
         {
         type: "input",
         message: "Enter engineer's github account",
-        name: "engineerGithub",  
-        validate: engineerGithub => {
-            if(engineerGithub){
+        name: "github",  
+        validate: github => {
+            if(github){
                 return true;
             }else{
                 console.log("Github account cannot be blank");
@@ -144,9 +144,11 @@ function addEngineer() {
             }
         }
         }
-    ]).then (data =>{
-        const engineer = new Engineer(data.engineerName, data.engineerId, data.engineerEmail, data.engineerGithub);
+    ]).then (data => {
+        const engineer = new Engineer(namer, id, email, github);
         managerTeam.push(engineer);
+        console.log("this is engineer" + data);
+        console.log("this is after eng add" + managerTeam);
         menu();
     });
 };
@@ -155,9 +157,9 @@ function addEngineer() {
             {
             type: "input",
             message: "Enter intern's name:",
-            name: "internName",
-            validate: internName => {
-                if(internName){
+            name: "namer",
+            validate: namer => {
+                if(namer){
                     return true;
                 }else{
                     console.log("Name cannot be blank");
@@ -168,9 +170,9 @@ function addEngineer() {
             {
             type: "input",
             message: "Enter intern's ID number",
-            name: "internId",
-            validate: internId => {
-                if(internId){
+            name: "id",
+            validate: id => {
+                if(id){
                     return true;
                 }else{
                     console.log("ID cannot be blank");
@@ -181,9 +183,9 @@ function addEngineer() {
             {
             type: "input",
             message: "Enter intern's email address",
-            name: "internEmail",
-            validate: internEmail => {
-                if(internEmail){
+            name: "email",
+            validate: email => {
+                if(email){
                     return true;
                 }else{
                     console.log("Email cannot be blank");
@@ -194,9 +196,9 @@ function addEngineer() {
             {
             type: "input",
             message: "Enter intern's college/university",
-            name: "internSchool",  
-            validate: internSchool => {
-                if(internSchool){
+            name: "school",  
+            validate: school => {
+                if(school){
                     return true;
                 }else{
                     console.log("College/university cannot be blank");
@@ -205,8 +207,10 @@ function addEngineer() {
             }
             }
         ]).then (data =>{
-            const intern = new Intern(data.internName, data.internId, data.internEmail, data.internSchool);
+            const intern = new Intern(namer, id, email, school);
             managerTeam.push(intern); 
+            console.log("This is intern" + data);
+            console.log("this is after intern added" + managerTeam);
             menu();
         });
 };
@@ -219,11 +223,11 @@ function menu() {
         choices: ["Yes", "No"]
         }  
     ]).then (function(answers){
-            switch(answers.addEmployee){
-                case "Yes":
+            if(answers.addEmployee == "Yes"){
                     addteamMember();
-                case "No":
-                    buildTeam();
+            } else {
+                console.log("this is after all are added"  + managerTeam);
+                buildTeam();
             }
         });
 };

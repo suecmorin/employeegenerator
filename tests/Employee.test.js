@@ -7,9 +7,9 @@ test("Can create an new employee.", () => {
 });
 
 test("tests getName function", () => {
-    const name = "John Doe";
-    const employee = new Employee(name);
-    expect(employee.getName()).toBe(name);
+    const Name = "John Doe";
+    const employee = new Employee(namer);
+    expect(employee.getnamer()).toBe(namer);
    
 });
 
@@ -21,7 +21,7 @@ test("gets id from getId() function", () => {
 test("gets id from getemail() function", () => {
     const testemail = "johndoe@gmail.com";
     const employee = new Employee("John Doe", "12", testemail);
-    expect(employee.getId()).toBe(testemail);
+    expect(employee.getEmail()).toBe(testemail);
 });
 
 test('test getRole() function', () => {
