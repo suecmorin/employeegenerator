@@ -67,7 +67,7 @@ inquirer.prompt([
         }
     }
  ]).then (data =>{
-     const manager = new Manager(namer, id, email, officeNumber);
+     const manager = new Manager(data.namer, data.id, data.email, data.officeNumber);
      managerTeam.push(manager);
      console.log("this is manager" + data);
     addteamMember();
@@ -145,10 +145,8 @@ function addEngineer() {
         }
         }
     ]).then (data => {
-        const engineer = new Engineer(namer, id, email, github);
+        const engineer = new Engineer(data.namer, data.id, data.email, data.github);
         managerTeam.push(engineer);
-        console.log("this is engineer" + data);
-        console.log("this is after eng add" + managerTeam);
         menu();
     });
 };
@@ -207,10 +205,8 @@ function addEngineer() {
             }
             }
         ]).then (data =>{
-            const intern = new Intern(namer, id, email, school);
+            const intern = new Intern(data.namer, data.id, data.email, data.school);
             managerTeam.push(intern); 
-            console.log("This is intern" + data);
-            console.log("this is after intern added" + managerTeam);
             menu();
         });
 };
@@ -226,7 +222,6 @@ function menu() {
             if(answers.addEmployee == "Yes"){
                     addteamMember();
             } else {
-                console.log("this is after all are added"  + managerTeam);
                 buildTeam();
             }
         });
