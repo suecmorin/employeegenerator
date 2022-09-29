@@ -2,16 +2,17 @@
 
 const makeCards = (data) => {
 var card = "";
-  console.log(data);
   for (let i = 0; i < data.length; i++) {
     if (data[i].getRole === "Manager") {
       card += managerCard(data[i]);
     } else if (data[i].getRole === "Engineer") {
       card += engineerCard(data[i]);
-    } else if (data[i].getRole ==="Intern") {
+    } else if (data[i].getRole === "Intern") {
       card += internCard(data[i]);
     }
   }
+  console.log(card);
+  console.log(data);
   return card;
 }
 
@@ -46,39 +47,50 @@ const generateHTML = (data) => {
  `;
   };
 
-  const managerCard = (data) => {
-    console.log(data);
+  const managerCard = (data) =>{
   return `
    <div class="card col-sm-2 bg-primary text-white rounded">
    <div class ="card-body">
    <ul class="list-group list-group-flush list-unstyled">
-   <li>${data.namer}</li>
+   <li>${data.getNamer()}</li>
+   <li>${data.id}</li>
    <li><a href="mailto:${data.email}">${data.email}</a></li>
    <li>${data.officeNumber}</li>
-   `;
-};
+   </ul>
+   </div>
+   </div>
+   `
+}
 
-const engineerCard = (data) => {
+const engineerCard = (data) =>{
   return `
     <div class="card col-sm-2 bg-success text-white rounded">
-    <div class ="card-body"
+    <div class ="card-body">
     <ul class="list-group list-group-flush list-unstyled">
-    <li ${data.namer}</li>
+    <li>${data.getNamer()}</li>
+    <li>${data.id}</li>
     <li <a href="mail to ${data.email}">${data.email}</a></li>
     <li <a href="github.com/${data.github}"</a></li>
-    `;
-};
+    </ul>
+   </div>
+   </div>
+    `
+}
 
-const internCard = (data) => {
+const internCard = (data) =>{
   return `
     <div class="card col-sm-2 bg-warning text-white rounded">
-    <div class ="card-body"
+    <div class ="card-body">
     <ul class="list-group list-group-flush list-unstyled">
-    <li ${data.namer}</li>
+    <li>${data.getNamer()}>
+    <li>${data.id}</li>
     <li <a href="mail to ${data.email}">${data.email}</a></li>
     <li ${data.school}</li>
-    `;
-};
+    </ul>
+   </div>
+   </div>
+    `
+}
 
 
 module.exports = generateHTML;

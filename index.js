@@ -17,7 +17,7 @@ inquirer.prompt([
     {
         type: "input", 
         message: "Enter your name",
-        name: "namer",
+        name: "mangernamer",
         validate: namer => {
             if(namer){
                 return true;
@@ -30,7 +30,7 @@ inquirer.prompt([
     {
         type: "input",
         message: "Enter your employee ID number:",
-        name: "id",
+        name: "managerid",
         validate: id => {
             if(id){
                 return true;
@@ -43,7 +43,7 @@ inquirer.prompt([
     {
         type: "input",
         message: "Enter your email:",
-        name: "email",
+        name: "manageremail",
         validate: email =>{
             if(email){
                 return true;
@@ -67,9 +67,8 @@ inquirer.prompt([
         }
     }
  ]).then (data =>{
-     const manager = new Manager(data.namer, data.id, data.email, data.officeNumber);
+     const manager = new Manager(data.mangernamer, data.managerid, data.manageremail, data.officeNumber);
      managerTeam.push(manager);
-     console.log("this is manager" + data);
     addteamMember();
 })
 };
@@ -95,7 +94,7 @@ function addEngineer() {
         {
         type: "input",
         message: "Enter engineer's name:",
-        name: "namer",
+        name: "engineernamer",
         validate: namer => {
             if(namer){
                 return true;
@@ -108,7 +107,7 @@ function addEngineer() {
         {
         type: "input",
         message: "Enter engineer's ID number",
-        name: "id",
+        name: "engineerid",
         validate: id => {
             if(id){
                 return true;
@@ -121,7 +120,7 @@ function addEngineer() {
         {
         type: "input",
         message: "Enter engineer's email address",
-        name: "email",
+        name: "engineeremail",
         validate: email => {
             if(email){
                 return true;
@@ -145,7 +144,7 @@ function addEngineer() {
         }
         }
     ]).then (data => {
-        const engineer = new Engineer(data.namer, data.id, data.email, data.github);
+        const engineer = new Engineer(data.engineernamer, data.engineerid, data.engineeremail, data.github);
         managerTeam.push(engineer);
         menu();
     });
@@ -155,7 +154,7 @@ function addEngineer() {
             {
             type: "input",
             message: "Enter intern's name:",
-            name: "namer",
+            name: "internnamer",
             validate: namer => {
                 if(namer){
                     return true;
@@ -168,7 +167,7 @@ function addEngineer() {
             {
             type: "input",
             message: "Enter intern's ID number",
-            name: "id",
+            name: "internid",
             validate: id => {
                 if(id){
                     return true;
@@ -181,7 +180,7 @@ function addEngineer() {
             {
             type: "input",
             message: "Enter intern's email address",
-            name: "email",
+            name: "internemail",
             validate: email => {
                 if(email){
                     return true;
@@ -205,7 +204,7 @@ function addEngineer() {
             }
             }
         ]).then (data =>{
-            const intern = new Intern(data.namer, data.id, data.email, data.school);
+            const intern = new Intern(data.internnamer, data.internid, data.internemail, data.school);
             managerTeam.push(intern); 
             menu();
         });
