@@ -4,16 +4,28 @@ const makeCards = (data) => {
 var card = "";
   for (let i = 0; i < data.length; i++) {
     if (data[i].getRole === "Manager") {
-    card += managerCard(data[i]);
+      return `
+   <div class="card col-sm-2 bg-primary text-white rounded">
+   <div class ="card-body">
+   <ul class="list-group list-group-flush list-unstyled">
+   <li>${data.getName()}</li>
+   <li>${data.id}</li>
+   <li><a href="mailto:${data.email}">${data.email}</a></li>
+   <li>${data.officeNumber}</li>
+   </ul>
+   </div>
+   </div>
+   `
+ //   card += managerCard(data[i]);
  //   } else if (data[i].getRole === "Engineer") {
-      card += engineerCard(data[i]);
+ //     card += engineerCard(data[i]);
 ////    } else if (data[i].getRole === "Intern") {
  //     card += internCard(data[i]);
     }
   }
   console.log(card);
   console.log(data);
-  return card;
+ // return card;
 }
 
 const generateHTML = (data) => {
