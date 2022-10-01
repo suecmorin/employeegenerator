@@ -4,7 +4,7 @@ const makeCards = (data) => {
 var card = "";
   for (let i = 0; i < data.length; i++) {
     if (data[i].getRole === "Manager") {
-      card += managerCard(data[i]);
+    card += managerCard(data[i]);
     } else if (data[i].getRole === "Engineer") {
       card += engineerCard(data[i]);
     } else if (data[i].getRole === "Intern") {
@@ -52,7 +52,7 @@ const generateHTML = (data) => {
    <div class="card col-sm-2 bg-primary text-white rounded">
    <div class ="card-body">
    <ul class="list-group list-group-flush list-unstyled">
-   <li>${data.getNamer()}</li>
+   <li>${data.getName()}</li>
    <li>${data.id}</li>
    <li><a href="mailto:${data.email}">${data.email}</a></li>
    <li>${data.officeNumber}</li>
@@ -67,7 +67,7 @@ const engineerCard = (data) =>{
     <div class="card col-sm-2 bg-success text-white rounded">
     <div class ="card-body">
     <ul class="list-group list-group-flush list-unstyled">
-    <li>${data.getNamer()}</li>
+    <li>${data.getName()}</li>
     <li>${data.id}</li>
     <li <a href="mail to ${data.email}">${data.email}</a></li>
     <li <a href="github.com/${data.github}"</a></li>
@@ -82,7 +82,7 @@ const internCard = (data) =>{
     <div class="card col-sm-2 bg-warning text-white rounded">
     <div class ="card-body">
     <ul class="list-group list-group-flush list-unstyled">
-    <li>${data.getNamer()}>
+    <li>${data.getName()}>
     <li>${data.id}</li>
     <li <a href="mail to ${data.email}">${data.email}</a></li>
     <li ${data.school}</li>
