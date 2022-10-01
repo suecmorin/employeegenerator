@@ -72,8 +72,7 @@ inquirer.prompt([
  ]).then (data =>{
      const manager = new Manager(data.managername, data.managerid, data.manageremail, data.officeNumber);
      managerTeam.push(manager);
-     buildTeam();
-    //addteamMember();
+    addteamMember();
 })
 };
 
@@ -98,9 +97,9 @@ function addEngineer() {
         {
         type: "input",
         message: "Enter engineer's name:",
-        name: "egineername",
-        validate: engineername => {
-            if(engineername){
+        name: "engineernamer",
+        validate: engineernamer => {
+            if(engineernamer){
                 return true;
             }else{
                 console.log("Name cannot be blank");
@@ -112,7 +111,7 @@ function addEngineer() {
         type: "input",
         message: "Enter engineer's ID number",
         name: "engineerid",
-        validate: iengineerd => {
+        validate: engineerid => {
             if(engineerid){
                 return true;
             }else{
@@ -148,7 +147,7 @@ function addEngineer() {
         }
         }
     ]).then (data => {
-        const engineer = new Engineer(data.engineername, data.engineerid, data.engineeremail, data.github);
+        const engineer = new Engineer(data.engineernamer, data.engineerid, data.engineeremail, data.github);
         managerTeam.push(engineer);
         menu();
     });
