@@ -72,7 +72,8 @@ inquirer.prompt([
  ]).then (data =>{
      const manager = new Manager(data.managername, data.managerid, data.manageremail, data.officeNumber);
      managerTeam.push(manager);
-    addteamMember();
+     buildTeam();
+    //addteamMember();
 })
 };
 
