@@ -5,9 +5,12 @@ const Engineer = require("./lib/Engineer.js");
 const Intern = require("./lib/Intern.js");
 const Employee = require("./lib/Employee.js");
 
-const generateHTML = require("./src/generateHTMLoriginalL.js");
+const generateHTML = require("./src/generateHTML.js");
 
 const managerTeam = [];
+const engineerTeam = [];
+const internTeam = [];
+
 
 addManager();
 

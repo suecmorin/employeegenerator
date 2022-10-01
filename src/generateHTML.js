@@ -5,10 +5,10 @@ var card = "";
   for (let i = 0; i < data.length; i++) {
     if (data[i].getRole === "Manager") {
     card += managerCard(data[i]);
-    } else if (data[i].getRole === "Engineer") {
+ //   } else if (data[i].getRole === "Engineer") {
       card += engineerCard(data[i]);
-    } else if (data[i].getRole === "Intern") {
-      card += internCard(data[i]);
+////    } else if (data[i].getRole === "Intern") {
+ //     card += internCard(data[i]);
     }
   }
   console.log(card);
@@ -47,7 +47,7 @@ const generateHTML = (data) => {
  `;
   };
 
-  const managerCard = (data) =>{
+  const managerCard = (data) => {
   return `
    <div class="card col-sm-2 bg-primary text-white rounded">
    <div class ="card-body">
@@ -77,7 +77,7 @@ const engineerCard = (data) =>{
     `
 }
 
-const internCard = (data) =>{
+const internCard = (data) => {
   return `
     <div class="card col-sm-2 bg-warning text-white rounded">
     <div class ="card-body">
