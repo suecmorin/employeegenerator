@@ -1,4 +1,4 @@
-const Employee = require('../lib/Employee.js');
+const Employee = require('../lib/Employee');
 
 //tests inquirer
 test("Can create an new employee.", () => {
@@ -18,15 +18,15 @@ test("gets id from getId() function", () => {
     const employee = new Employee("John Doe", testId);
     expect(employee.getId()).toBe(testId);
 });
-test("gets id from getemail() function", () => {
-    const testemail = "johndoe@gmail.com";
-    const employee = new Employee("John Doe", "12", testemail);
-    expect(employee.getEmail()).toBe(testemail);
+test("gets email from getemail() function", () => {
+    const testEmail = "johndoe@gmail.com";
+    const employee = new Employee("John Doe", "12", testEmail);
+    expect(employee.getEmail()).toBe(testEmail);
 });
 
 test('test getRole() function', () => {
-    const testgetRole = "Employee"
-    const employee = new Employee("john Doe", "12", "johndoe@gmail.com", testgetRole);
-    expect(employee.getRole()).toBe(testgetRole);
+    const testRole = "Employee"
+    const employee = new Employee("john Doe", "12", "johndoe@gmail.com");
+    expect(employee.getRole()).toBe(testRole);
 });
 
