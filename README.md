@@ -9,7 +9,9 @@ No installation required. The package.json file was updated to include parameter
 
 ## USAGE 
 User types 'npm install' followed by 'node index.js'. Open './dist/index.HTML' in the default browser to see the generated index.HTML. To run the tests, type 'npm test'.
-Because this app does not have a front-end, videos in the video folder show the Inquirer dialogue, testing and the generated HTML.
+Because this app does not have a front-end, videos linked below, show the Inquirer dialogue, testing and the generated HTML.
+
+https://drive.google.com/file/d/1TA9ZYHPn-KLyf7tUXnONBB9-plp3IASk/view
 
 ## LICENSE 
 None
