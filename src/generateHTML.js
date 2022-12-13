@@ -13,12 +13,11 @@ var card = "";
     if (data[i].getRole() === "Intern") {
      card += internCard(data[i]);
     }
-    return card;
   }
-  console.log(card);
+    return card;
+    console.log(card);
   console.log(data);
- return card;
-}
+  }
 
 const generateHTML = (data) => {
     return `
@@ -31,17 +30,12 @@ const generateHTML = (data) => {
           <title>Team Generator</title>
           <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
           <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-          <link rel="stylesheet" href="./dist/style.css">
+          <link rel="stylesheet" href="./style.css">
       </head>
       <body>
-          <header class="d-inline-block">
-          <div class ="jumbotron-fluid text-white bg-transparent">
-              <h2>Engineering Team</h2>
-          </div> 
-          </header>
+        <h1>Engineering Team</h1>
   <main class = "container-fluid">
-  <div class = "row justify-content-around">
-  <div class= "card-group col-sm-8 empDeck bg-transparent text-white">
+  <div class = "row justify-content-around bg-transparent">
   ${makeCards(data)}
   </div>
   </div>
@@ -53,12 +47,13 @@ const generateHTML = (data) => {
 
   const managerCard = (data) => {
   return `
-   <div class="card col-sm-2 bg-primary text-white rounded">
+   <div class="card col-sm-4 bg-secondary rounded">
    <div class ="card-body">
    <ul class="list-group list-group-flush list-unstyled">
+   <li>TEAM LEADER</li>
    <li>${data.getName()}</li>
-   <li>${data.id}</li>
-   <li><a href="mailto:${data.email}">${data.email}</a></li>
+   <li>Employee Number ${data.id}</li>
+   <li><a href="mailto:${data.email}">Send Email</a></li>
    <li>Office ${data.officeNumber}</li>
    </ul>
    </div>
@@ -68,13 +63,14 @@ const generateHTML = (data) => {
 
 const engineerCard = (data) => {
   return `
-    <div class="card col-sm-2 bg-success text-white rounded">
+    <div class="card col-sm-4 bg-success rounded">
     <div class ="card-body">
     <ul class="list-group list-group-flush list-unstyled">
+    <li>ENGINEER</li>
     <li>${data.getName()}</li>
-    <li>${data.id}</li>
-    <li <a href="mail to ${data.email}">${data.email}</a></li>
-    <li <a href="github.com/${data.github}"</a></li>
+    <li>Employee Number ${data.id}</li>
+    <li <a href="mail to ${data.email}">Send Email</a></li>
+    <li> <a href="github.com/${data.github}">Github></a></li>
     </ul>
    </div>
    </div>
@@ -83,13 +79,14 @@ const engineerCard = (data) => {
 
 const internCard = (data) => {
   return `
-    <div class="card col-sm-2 bg-warning text-white rounded">
+    <div class="card col-sm-4 bg-warning rounded">
     <div class ="card-body">
     <ul class="list-group list-group-flush list-unstyled">
-    <li>${data.getName()}>
-    <li>${data.id}</li>
-    <li <a href="mail to ${data.email}">${data.email}</a></li>
-    <li ${data.school}</li>
+    <li>INTERN</li>
+    <li>${data.getName()}</li>
+    <li>Employee Number ${data.id}</li>
+    <li><a href="mail to ${data.email}">Send Email</a></li>
+    <li>Student at   ${data.school}</li>
     </ul>
    </div>
    </div>

@@ -22,9 +22,9 @@ inquirer.prompt([
         message: "Enter your name",
         name: "managername",
         validate: managername => {
-            if(managername){
+            if (managername) {
                 return true;
-            }else{
+            } else {
                 console.log("Name cannot be blank");
                 return false;
             }
@@ -35,7 +35,7 @@ inquirer.prompt([
         message: "Enter your employee ID number:",
         name: "managerid",
         validate: managerid => {
-            if(managerid){
+            if (managerid) {
                 return true;
             }else{
                 console.log("Please enter an ID number");
